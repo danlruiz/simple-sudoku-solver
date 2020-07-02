@@ -15,7 +15,7 @@ To run this app in your local machine, start the virtual environment with
 Linux/Mac
 ```bash
 
-    source env/Scripts/activate.bat
+    source env/Scripts/activate
 
 ```
 
