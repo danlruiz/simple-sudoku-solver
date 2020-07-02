@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/sudoku.css') }}">
+<div class='content'>
+    <form action='/' method='post'>
+        <table class='table'>
+            <caption>Sudoku Solver</caption>
+            
+            <colgroup><col><col><col></colgroup>
+            <colgroup><col><col><col></colgroup>
+            <colgroup><col><col><col></colgroup>
+            <br>
+            <tbody>
+
+    {% for row in range_n_rows %}
+
+        {% if (row) % 3 == 0 and row != 1 %}
+
+            <tbody>
+
+        {% endif %}
+
+            <tr> 
+            <td> <input type="text" maxlength="1" name='row{{loop.index}}column1' style="width: 15px">  
+            <td> <input type="text" maxlength="1"  name='row{{loop.index}}column2' style="width: 15px"> 
+            <td> <input type="text" maxlength="1"  name='row{{loop.index}}column3' style="width: 15px"> 
+            <td> <input type="text" maxlength="1"  name='row{{loop.index}}column4' style="width: 15px">  
+            <td>  <input type="text" maxlength="1"  name='row{{loop.index}}column5' style="width: 15px"> 
+            <td> <input type="text" maxlength="1"  name='row{{loop.index}}column6' style="width: 15px"> 
+            <td> <input type="text" maxlength="1"  name='row{{loop.index}}column7' style="width: 15px"> 
+            <td> <input type="text" maxlength="1"  name='row{{loop.index}}column8' style="width: 15px"> 
+            <td> <input type="text" maxlength="1"  name='row{{loop.index}}column9' style="width: 15px"> 
+
+    {% endfor %}
+
+        </table>
+        <br>
+        <input value='Solve Puzzle' type='submit'>
+    </form>
+
+    {% if grid %}
+    <br>
+    <caption>Sudoku Answer:</caption>
+
+    <table class='table'>
+        <colgroup><col><col><col></colgroup>
+        <colgroup><col><col><col></colgroup>
+        <colgroup><col><col><col></colgroup>
+        <tbody>
+        {% for row in grid %}
+
+            {% if (loop.index -1) % 3 == 0 and loop.index != 0 %}
+
+        <tbody>
+
+            {% endif %}
+
+        <tr> 
+        <td> <input type="text" value='{{row[0]}}' style="width: 15px">  
+        <td> <input type="text" value='{{row[1]}}' style="width: 15px"> 
+        <td> <input type="text" value='{{row[2]}}' style="width: 15px"> 
+        <td> <input type="text" value='{{row[3]}}' style="width: 15px">  
+        <td>  <input type="text" value='{{row[4]}}' style="width: 15px"> 
+        <td> <input type="text" value='{{row[5]}}' style="width: 15px"> 
+        <td> <input type="text" value='{{row[6]}}' style="width: 15px"> 
+        <td> <input type="text" value='{{row[7]}}' style="width: 15px"> 
+        <td> <input type="text" value='{{row[8]}}' style="width: 15px"> 
+
+        {% endfor %}
+
+    </table>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
