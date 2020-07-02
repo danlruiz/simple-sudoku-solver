@@ -2,7 +2,8 @@
 
 ## About
 
-This flask web app solves sudoku puzzles using a backtracking algorithm. The prime intention of this project is to have a simple running app which can be expanded upon to experiment with various features and functionalities.
+This Flask web app solves sudoku puzzles using a backtracking algorithm. 
+The prime intention of this project is to experiment with the Flask framework.
 
 ## Live Version
 
